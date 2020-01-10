@@ -25,8 +25,6 @@ func Init(dbPath string) error {
 		panic(err)
 	}
 
-	defer db.Close()
-
 	return db.Update(func(tx *bolt.Tx) error {
 		_, err := tx.CreateBucketIfNotExists(taskBucket)
 		return err
